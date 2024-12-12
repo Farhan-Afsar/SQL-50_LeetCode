@@ -1,0 +1,5 @@
+select visits.customer_id,count(visits.visit_id) AS count_no_transfrom visits
+    left join transactions
+        using(visit_id)
+    where transactions.transaction_id is null
+        group by customer_id;
